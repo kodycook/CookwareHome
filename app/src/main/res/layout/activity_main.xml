@@ -48,7 +48,32 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sample Text"
+        android:hint=""
         android:id="@+id/SampleText"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:paddingTop="6dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Unlock\nShed Door"
+            android:onClick="UnlockShedDoor"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Lock\nShed Door"
+            android:onClick="LockShedDoor"/>
+
+    </LinearLayout>
 
 </LinearLayout>
