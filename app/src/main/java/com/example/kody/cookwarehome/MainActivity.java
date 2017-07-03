@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         manCaveScreen = new HttpMessage((TextView) findViewById(R.id.SampleText), getApplicationContext());
-        manCaveDoorLock = new TelnetMessage();
     }
 
     public void ScreenUp(View view){
@@ -34,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void UnlockShedDoor(View view){
+        manCaveDoorLock = new TelnetMessage();
         manCaveDoorLock.postNewComment("U");
         System.out.println("Unlocking Shed Door");
     }
 
     public void LockShedDoor(View view){
+        manCaveDoorLock = new TelnetMessage();
         manCaveDoorLock.postNewComment("L");
         System.out.println("Locking Shed Door");
     }
