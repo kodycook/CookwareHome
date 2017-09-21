@@ -43,4 +43,10 @@ public class MainActivity extends AppCompatActivity {
         manCaveDoorLock.postNewComment("L");
         System.out.println("Locking Shed Door");
     }
+
+    public void ToggleGarageDoor(View view){
+        manCaveDoorLock = new TelnetMessage();
+        manCaveDoorLock.postNewComment("G");
+        System.out.println("Toggling Garage Door");
+    }
 }

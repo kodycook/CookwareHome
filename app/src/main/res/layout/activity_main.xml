@@ -11,7 +11,7 @@
         android:textSize="32sp"
         android:paddingTop="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:text="Screen Control"/>
+        android:text="Projector Screen"/>
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -51,6 +51,14 @@
         android:hint=""
         android:id="@+id/SampleText"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:paddingTop="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Doors"/>
+
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -73,6 +81,13 @@
             android:layout_weight="1"
             android:text="Lock\nShed Door"
             android:onClick="LockShedDoor"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Garage Door"
+            android:onClick="ToggleGarageDoor"/>
 
     </LinearLayout>
 
