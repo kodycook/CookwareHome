@@ -1,6 +1,7 @@
 package com.example.kody.cookwarehome;
 
 import android.content.Context;
+import android.util.Base64;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -28,29 +29,25 @@ public class HttpMessage {
     }
 
 
-    public void postNewComment(String inKey, String inValue){
-        final String key = inKey;
-        final String value = inValue;
+    public void postNewComment(String url, Map<String,String> mParams, String mAction){
+        final Map<String,String> params = mParams;
+        final String action = mAction;
 
         //mPostCommentResponse.requestStarted();
         RequestQueue queue = Volley.newRequestQueue(mContext);
-        StringRequest sr = new StringRequest(Request.Method.POST,"http://10.1.1.20/ADirectControl.html", new Response.Listener<String>() {
+        StringRequest sr = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                mTextView.setText(String.format("Screen %s success", value));
-                //mPostCommentResponse.requestCompleted();
+                mTextView.setText(String.format("%s Success", action));
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                mTextView.setText(String.format("Screen %s failed", value));
-                //mPostCommentResponse.requestEndedWithError(error);
+                mTextView.setText(String.format("%s Failed", action));
             }
         }){
             @Override
             protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
-                params.put(key, value);
 
                 return params;
             }
@@ -59,6 +56,45 @@ public class HttpMessage {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String,String> params = new HashMap<String, String>();
                 // Include headers here if nessecary
+
+                return params;
+            }
+        };
+        queue.add(sr);
+    }
+
+
+    public void getNewComment(String url, Map<String,String> mParams, String mAction){
+        final Map<String,String> params = mParams;
+        final String action = mAction;
+
+        //mPostCommentResponse.requestStarted();
+        RequestQueue queue = Volley.newRequestQueue(mContext);
+        StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                mTextView.setText(String.format("%s Success", action));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mTextView.setText(String.format("%s Failed", action));
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                // Include headers here if nessecary
+
+                // PROJECTOR SPECIFIC
+                String creds = String.format("%s:%s","user1","panasonic");
+                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                params.put("Authorization", auth);
 
                 return params;
             }

@@ -11,6 +11,45 @@
         android:textSize="32sp"
         android:paddingTop="10dp"
         android:textColor="@color/colorPrimaryDark"
+        android:text="Projector"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:paddingTop="6dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Projector\nOn"
+            android:onClick="ProjectorOn"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Projector\nOff"
+            android:onClick="ProjectorOff"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:id="@+id/ProjectorSuccess"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:paddingTop="10dp"
+        android:textColor="@color/colorPrimaryDark"
         android:text="Projector Screen"/>
 
     <LinearLayout
@@ -49,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint=""
-        android:id="@+id/SampleText"/>
+        android:id="@+id/ScreenSuccess"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -90,5 +129,11 @@
             android:onClick="ToggleGarageDoor"/>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:id="@+id/DoorsSuccess"/>
 
 </LinearLayout>
